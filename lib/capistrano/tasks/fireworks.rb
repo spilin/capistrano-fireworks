@@ -22,7 +22,6 @@ namespace :fireworks do
     on roles(fetch(:fireworks_role)) do
       params = commit_details.merge(state: 'progress')
       server_post(params) if fetch(:fireworks_server_url)
-      slack_post(params) if fetch(:fireworks_slack_hook)
     end
   end
 
