@@ -35,7 +35,7 @@ namespace :fireworks do
       encoded_data = default_attributes.merge(additional_attributes).each_with_object("") do |(key, value), str|
         str << " --data-urlencode \"#{key}=#{value}\""
       end
-      execute :curl, "-G -X POST \"#{fetch(:fireworks_server_url)}/entries\"#{encoded_data}"
+      execute :curl, " -s -S -G -X POST \"#{fetch(:fireworks_server_url)}/entries\"#{encoded_data}"
     end
   end
 
