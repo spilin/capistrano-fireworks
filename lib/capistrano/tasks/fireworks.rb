@@ -32,10 +32,8 @@ namespace :fireworks do
 
   def server_post(additional_attributes ={})
     within release_path do
-      encoded_data = default_attributes.merge(additional_attributes).each_with_object("") do |(key, value), str|
-        str << " --data-urlencode \"#{key}=#{value}\""
-      end
-      execute :curl, " -s -S -G -X POST \"#{fetch(:fireworks_server_url)}/entries\"#{encoded_data}"
+      data = JSON.dump(default_attributes.merge(additional_attributes))
+      execute :curl, " -s -S -H \"Content-Type: application/json\" -X POST --data '#{data}' #{fetch(:fireworks_server_url)}/entries"
     end
   end
 
