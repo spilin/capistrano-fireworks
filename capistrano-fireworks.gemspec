@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Deployment notification to server or slack}
   spec.description   = %q{Deployment notification to server or slack}
-  spec.homepage      = "https://github.com/spilin/capistrano-fireworks"
+  spec.homepage      = "https://github.com/ticketco/capistrano-fireworks"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
